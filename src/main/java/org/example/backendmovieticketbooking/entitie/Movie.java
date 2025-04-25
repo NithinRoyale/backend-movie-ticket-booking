@@ -18,15 +18,15 @@ public class Movie {
     private int yearOfRelease;
     private String genre;
     private String language;
-    private String imageUrl;
+    private String thumbnailUrl;
     @Version
     private Integer version;
 
-    public Movie(String name, int yearOfRelease, String genre, String language, String imageUrl) {
+    public Movie(String name, int yearOfRelease, String genre, String language, String thumbnailUrl) {
         this.name = name;
         this.yearOfRelease = yearOfRelease;
         this.genre = genre;
         this.language = language;
-        this.imageUrl = imageUrl;
+        this.thumbnailUrl = thumbnailUrl;
     }
 }
