@@ -30,7 +30,7 @@ public class Theater {
     private List<String> dateOfShows;
 
     @Column(length = 1000)
-    private String theaterUrl;
+    private String theaterImageUrl;
 
 //    public Theater() {
 //        initializeSeatsGrid();
@@ -42,7 +42,7 @@ public class Theater {
         this.showTiming = timing;
         this.dateOfShows = dateOfShows;
         this.runningMovieId = runningMovieId;
-        this.theaterUrl = theaterUrl;
+        this.theaterImageUrl = theaterUrl;
         initializeSeatsGrid();
         System.out.println("addUser called");
     }
