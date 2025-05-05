@@ -25,5 +25,30 @@ public class EmailService {
 
         mailSender.send(mimeMessage);
     }
+
+    public void sendIssueMail(String htmlContent,String fromEmail,String queryType) throws MessagingException {
+        MimeMessage mimeMessage = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+
+        switch (queryType){
+            case "For Other queries":
+                helper.setTo("ksadasi1@ford.com");
+                break;
+
+            case "For Customer queries":
+                helper.setTo("nl3@ford.com");
+                break;
+
+            case "To host your Theater":
+                helper.setTo("rka2@ford.com");
+                break;
+
+        }
+
+        helper.setSubject("issue");
+        helper.setText(htmlContent, true); // Ensure isHtml is set to true
+        helper.setFrom(fromEmail);
+        mailSender.send(mimeMessage);
+    }
 }
 

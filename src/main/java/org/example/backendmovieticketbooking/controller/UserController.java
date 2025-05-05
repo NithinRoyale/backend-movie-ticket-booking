@@ -1,6 +1,7 @@
 package org.example.backendmovieticketbooking.controller;
 
 import jakarta.mail.MessagingException;
+import org.example.backendmovieticketbooking.entitie.Issue;
 import org.example.backendmovieticketbooking.entitie.Users;
 import org.example.backendmovieticketbooking.service.EmailService;
 import org.example.backendmovieticketbooking.service.TheaterService;
@@ -98,5 +99,30 @@ public class UserController {
         emailService.sendConfirmationEmail(email, subject, htmlContent);
 
         return "Confirmation email sent to " + email;
+    }
+
+    @PostMapping("/sendIssueMail")
+    public String sendIssueMail(@RequestBody Issue issue) throws MessagingException {
+        String htmlContent = "<html>"
+                + "<body style=\"font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px;\">"
+                + "<div style=\"max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\">"
+                + "<div style=\"text-align: center; margin-bottom: 20px;\">"
+                + "<img src=\"https://pluspng.com/img-png/ford-logo-png-ford-logo-png-file-event-projection-1464x550.png\" style=\"max-width: 200px; height: auto;\" />"
+                + "</div>"
+                + "<h1 style=\"color: #333;\">Issue Raised</h1>"
+                + "<p style=\"color: #555;\">Name :" + issue.getName() + ",</p>"
+                + "<p style=\"color: #555;\">Mobile :" + issue.getPhone() + ",</p>"
+                + "<p style=\"color: #555;\">Email :" + issue.getEmail() + ",</p>"
+                + "<p style=\"color: #555;\">Query Type :" + issue.getQueryType() + ",</p>"
+                + "<p style=\"color: #555;\">Issue :" + issue.getMessage() + ",</p>"
+
+
+                + "</div>"
+                + "</body>"
+                + "</html>";
+
+
+        emailService.sendIssueMail(htmlContent,issue.getEmail(),issue.getQueryType());
+        return "Issue email sent";
     }
 }

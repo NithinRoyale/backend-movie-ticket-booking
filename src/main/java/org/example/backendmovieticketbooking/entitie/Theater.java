@@ -32,9 +32,6 @@ public class Theater {
     @Column(length = 1000)
     private String theaterImageUrl;
 
-//    public Theater() {
-//        initializeSeatsGrid();
-//    }
 
     public Theater(String theaterName, int totalSeats, List<String> timing, int runningMovieId, List<String> dateOfShows, String theaterUrl) {
         this.theaterName = theaterName;
