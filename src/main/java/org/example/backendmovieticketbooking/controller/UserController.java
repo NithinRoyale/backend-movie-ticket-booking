@@ -26,7 +26,7 @@ public class UserController {
     private EmailService emailService;
 
 //    Get Available Seats
-    @GetMapping("/getAvailableSeats")
+    @GetMapping("/get-available-seats")
     public ResponseEntity<Integer> getAvailableSeats(@RequestParam(required = false) String theaterName,
                                                      @RequestParam(required = false) String date,
                                                      @RequestParam(required = false) String timing) {
@@ -101,7 +101,7 @@ public class UserController {
         return "Confirmation email sent to " + email;
     }
 
-    @PostMapping("/sendIssueMail")
+    @PostMapping("/send-issue-mail")
     public String sendIssueMail(@RequestBody Issue issue) throws MessagingException {
         String htmlContent = "<html>"
                 + "<body style=\"font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px;\">"
